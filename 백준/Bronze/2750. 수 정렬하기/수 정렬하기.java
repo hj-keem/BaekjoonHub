@@ -1,25 +1,24 @@
-import java.util.Arrays;
 import java.util.Scanner;
+import static java.util.Arrays.sort;
 
 public class Main {
     public static void main(String[] args) {
+        // 1. Scanner를 이용하여 5개의 숫자 받기
+        // 2. 받자마자 배열에 넣기
+        // 3. 해당 배열을 If문을 통해 작은 수를 첫번째 배열에 맞출 수 있도록 설정
+        
         Scanner sc = new Scanner(System.in);
-        // 수의 개수
-        int n = sc.nextInt();
-        // 담을 공간
-        int[] array = new int[n];
-
-        // 개수만큼 수 출력
-        for (int i = 0; i < n; i++) {
-            array[i] =  sc.nextInt();
+        int inputNum = sc.nextInt();
+        int[] numList = new int[inputNum];
+        
+        for (int i = 0; i < numList.length; i++) {
+            int num = sc.nextInt();
+            numList[i] = num;
         }
+        sort(numList);
 
-        // 배열에 넣은 값 정렬
-        Arrays.sort(array);
-
-        // 한줄씩 출력
-        for (int i = 0; i < n; i++) {
-            System.out.println(array[i]);
+        for (int i = 0; i < numList.length; i++) {
+            System.out.println(numList[i]);
         }
     }
 }
