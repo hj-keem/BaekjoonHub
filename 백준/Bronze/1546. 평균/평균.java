@@ -5,7 +5,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int sum =0 ;
-        double res = 0 ;
         // 점수 갯수 입력 (N)
         int N = sc.nextInt();
         // 갯수 만큼 배열 생성
