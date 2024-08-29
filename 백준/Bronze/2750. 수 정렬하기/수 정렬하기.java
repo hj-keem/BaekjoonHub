@@ -1,24 +1,31 @@
-import java.util.Scanner;
-import static java.util.Arrays.sort;
+import java.io.*;
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        // 1. Scanner를 이용하여 5개의 숫자 받기
-        // 2. 받자마자 배열에 넣기
-        // 3. 해당 배열을 If문을 통해 작은 수를 첫번째 배열에 맞출 수 있도록 설정
-        
-        Scanner sc = new Scanner(System.in);
-        int inputNum = sc.nextInt();
-        int[] numList = new int[inputNum];
-        
-        for (int i = 0; i < numList.length; i++) {
-            int num = sc.nextInt();
-            numList[i] = num;
-        }
-        sort(numList);
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
-        for (int i = 0; i < numList.length; i++) {
-            System.out.println(numList[i]);
+        // 선언 및 입력
+        int N = Integer.parseInt(bf.readLine());
+        int[] arr = new int[N];
+
+        // 배열에 입력받은 값을 저장
+        for (int i = 0; i < N; i++) {
+            arr[i] = Integer.parseInt(bf.readLine());
+        }
+        
+        // swap 하며 오름차순으로 정렬
+        for (int i = 0; i < N-1; i++) {
+            for (int j = 0; j < N-1-i; j++) {
+                if (arr[j] > arr[j+1]){
+                    int swap = arr[j+1];
+                    arr[j+1] = arr[j];
+                    arr[j] = swap;
+                }
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
         }
     }
 }
